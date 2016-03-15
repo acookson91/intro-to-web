@@ -23,8 +23,21 @@ get '/funny' do
   "Andrew"
 end
 
-get '/cat' do
-"<div class='cat'>
-  <img style='border: 10px dotted red;'' src='https://metrouk2.files.wordpress.com/2015/10/cat-dressed-as-a-pirate-just-won-halloween.png'>
-  </div>"
+get '/random-cat' do
+  @name = ["Amigo", "Oscar", "Viking"].sample
+  erb(:index)
+end
+
+post '/named-cat' do
+  @name = params[:name]
+  p params
+  erb(:index)
+end
+
+get '/named-cat' do
+  "nope!"
+end
+
+get '/form' do
+  erb(:form)
 end
